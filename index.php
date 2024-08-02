@@ -7,5 +7,4 @@ $contaCorrente3 = new ContaCorrente(21313, 'Tia May', "12345678912", "tia.may@uo
 $contaCorrente4 = new ContaCorrente(21313, 'Mary Jane', "12345678932", "mary.jane@google.com", "(11)91434-5672", 400);
 $contaCorrente5 = new ContaCorrente(21313, 'Miranha', "12345678933", "eu.nao.sou.miranha@outlook.com", "(11)91232-5672", 100);
 $contaCorrente6 = new ContaCorrente(21313, 'Tony Stark', "12341238933", "eu.sou.homemdeferro@stark.com", "(11)91232-7821", 10000000);
-
 echo $contaCorrente4->getSaldo();
