@@ -73,9 +73,8 @@ class ContaCorrente
         } elseif ($saque <= 0) {
             echo "Valor de saque inválido.";
         } else{
-        $this->saldo -= $saque;
-        echo "Seu saque de $$saque foi efetuado com sucesso";
+            $this->saldo -= $saque;
+            echo "Seu saque de $$saque foi efetuado com sucesso";
+        }
     }
-}
-
 }
