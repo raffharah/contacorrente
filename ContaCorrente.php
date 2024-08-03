@@ -75,6 +75,18 @@ class ContaCorrente
         } else{
             $this->saldo -= $saque;
             echo "Seu saque de $$saque foi efetuado com sucesso";
+            return $this->saldo;
         }
+    }
+    public function transferencia(ContaCorrente $contaDestino, float $transferencia)
+    {
+     if ($transferencia > $this->saldo) {
+         echo "Transferencia não efetuada por falta de saldo";
+     } elseif ($transferencia <= 0) {
+         echo "Para efetuar transferencia, o valor precisa ser válido.\nValor da tentativa $transferencia";
+     }else{
+         $this->saldo -= $transferencia;
+         $contaDestino->saldo += $transferencia;
+     }
     }
 }
