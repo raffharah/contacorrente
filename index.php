@@ -8,9 +8,11 @@ $contaCorrente4 = new ContaCorrente(21313, 'Mary Jane', "12345678932", "mary.jan
 $contaCorrente5 = new ContaCorrente(21313, 'Miranha', "12345678933", "eu.nao.sou.miranha@outlook.com", "(11)91232-5672", 100);
 $contaCorrente6 = new ContaCorrente(21313, 'Tony Stark', "12341238933", "eu.sou.homemdeferro@stark.com", "(11)91232-7821", 10000000);
 
-$contaCorrente4->deposita(1) . "\n";
-$contaCorrente1->saque(100000). "\n";
+
+$contaCorrente4->deposita(-1);
+$contaCorrente1->saque(100);
 $contaCorrente2->transferencia($contaCorrente3, 1);
+
 echo $contaCorrente1->getSaldo() . "\n";
 echo $contaCorrente4->getSaldo(). "\n\n";
 echo $contaCorrente3->getSaldo(). "\n";

@@ -57,36 +57,37 @@ class ContaCorrente
     {
         $this->celular = $celular;
     }
+
     public function deposita(float $deposito)
     {
         if ($deposito >= 1) {
             $this->saldo += $deposito;
-            echo "Seu deposito de $$deposito foi efetuado com sucesso";
-        } else {
-            echo "Valor de depósito inválido.";
+            echo "Seu deposito de $$deposito foi efetuado com sucesso\n";
+            return true;
         }
+        echo "Valor de depósito inválido.\n";
+        return false;
     }
     public function saque(float $saque)
     {
-        if ($saque > $this->saldo) {
-            echo "Valor de saque inválido, saldo indisponivel.";
-        } elseif ($saque <= 0) {
-            echo "Valor de saque inválido.";
-        } else{
-            $this->saldo -= $saque;
-            echo "Seu saque de $$saque foi efetuado com sucesso";
-            return $this->saldo;
+        if ($saque > $this->saldo || $saque < 0) {
+            echo "Valor de saque inválido, saldo indisponivel, seu saldo é de " .  $this->getSaldo() ."\n";
+            return false;
         }
+        $this->saldo -= $saque;
+        echo "Seu saque de $$saque foi efetuado com sucesso\n";
+        return $this->saldo;
     }
-    public function transferencia(ContaCorrente $contaDestino, float $transferencia)
+    public
+    function transferencia($contaDestino, float $transferencia)
     {
-     if ($transferencia > $this->saldo) {
-         echo "Transferencia não efetuada por falta de saldo";
-     } elseif ($transferencia <= 0) {
-         echo "Para efetuar transferencia, o valor precisa ser válido.\nValor da tentativa $transferencia";
-     }else{
-         $this->saldo -= $transferencia;
-         $contaDestino->saldo += $transferencia;
-     }
+        if ($transferencia > $this->saldo || $transferencia < 0) {
+            echo "Transferencia não efetuada por falta de saldo ou valor inválido.\n";
+            return false;
+        }
+        $this->saldo -= $transferencia;
+        $contaDestino->saldo += $transferencia;
+        echo "transferencia $transferencia foi efetuada com sucesso\n";
+        return true;
     }
 }
